@@ -2,6 +2,7 @@
   "name": "pr2",
   "version": "0.0.0",
   "description": "Practical work number 2",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
