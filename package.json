@@ -1,6 +1,6 @@
 {
   "name": "pr2",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Practical work number 2",
   "type": "module",
   "main": "index.js",
