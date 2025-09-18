@@ -2,8 +2,17 @@
   "name": "pr2",
   "version": "0.5.0",
   "description": "Practical work number 2",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "type": "module",
-  "main": "index.js",
+  "main": "dist/index.cjs",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "tsup src/index.ts --format cjs,esm --dts",
