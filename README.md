@@ -11,7 +11,7 @@
 
 ---
 
-## ⚙️ Інструкції з запуску
+## Інструкції з запуску
 
 ### Встановлення
 ```bash
@@ -19,6 +19,16 @@ git clone https://github.com/DenysKryvosheiev/PR2.git
 cd PR2
 npm install
 ```
+![Команда npm install](./img/install.jpg)
+```bash
+npm run demo
+```
+### Приклад викликів функцій:
+![Команда npm run demo](./img/demo.jpg)
+```bash
+npm run build
+```
+![Команда run build](./img/build.jpg)
 ## Крок 1. Ініціалізація проєкту
 
 створено package.json, .gitignore, базові скрипти;
@@ -73,3 +83,90 @@ formatNumber тепер бере значення з APP_PRECISION у .env.
 зміна сигнатури add: тепер приймає масив чисел add(values: number[]);
 
 у demo.ts видно помилку компілятора й правильний виклик.
+
+# Нотатка про .env
+
+У бібліотеці використовується файл .env, який зберігається в корені проєкту та підвантажується за допомогою dotenv.
+Валідація виконується через zod у файлі src/config.ts.
+
+## Ключі та їх значення:
+
+APP_PRECISION
+
+Тип: number (ціле число від 0 до 10).
+
+### Призначення: визначає кількість знаків після коми у функції formatNumber.
+
+#### Приклад:
+
+APP_PRECISION=3
+
+
+Виклик formatNumber(123.456) → 123.456.
+
+LOG_LEVEL
+
+#### Тип: літеральний тип 'silent' | 'info' | 'debug'.
+
+### Призначення: задає рівень логування для класу Logger.
+
+#### Приклад:
+
+LOG_LEVEL=debug
+
+
+silent → не виводиться нічого.
+
+info → виводяться тільки повідомлення info.
+
+debug → виводяться як info, так і debug.
+
+### Приклад .env
+```
+APP_PRECISION=3
+
+LOG_LEVEL=debug
+```
+# Теги релізів
+
+У репозиторії створено git-теги для кожного етапу розробки:
+
+- [v0.1.0](https://github.com/DenysKryvosheiev/PR2/releases/tag/v0.1.0) – прості функції з `any`;
+- [v0.2.0](https://github.com/DenysKryvosheiev/PR2/releases/tag/v0.2.0) – базові типи (`number`, `string`);
+- [v0.3.0](https://github.com/DenysKryvosheiev/PR2/releases/tag/v0.3.0) – нова функція `formatNumber` з `NumberFormatOptions`;
+- [v0.4.0](https://github.com/DenysKryvosheiev/PR2/releases/tag/v0.4.0) – інтерфейси + generic-функція `groupBy<T>`;
+- [v0.5.0](https://github.com/DenysKryvosheiev/PR2/releases/tag/v0.5.0) – клас `Logger`, валідація `.env` через `zod`;
+- [v1.0.0](https://github.com/DenysKryvosheiev/PR2/releases/tag/v1.0.0) – стабілізація API, заборона `any`, експорти у `package.json`;
+- [v2.0.0](https://github.com/DenysKryvosheiev/PR2/releases/tag/v2.0.0) – breaking change: функція `add` приймає масив чисел.
+
+# Husky-хуки
+## 0.1.0
+### Помилка!
+![Помилка!](./img/0.1.0_error.jpg)
+### Виправлення!
+![Виправлення!](./img/0.1.0_ok.jpg)
+## 0.2.0
+### Помилка!
+![Помилка!](./img/0.2.0_error.jpg)
+### Виправлення!
+![Виправлення!](./img/0.2.0_ok.jpg)
+## 0.3.0
+### Помилка!
+![Помилка!](./img/0.3.0_error.jpg)
+### Виправлення!
+![Виправлення!](./img/0.3.0_ok.jpg)
+## 0.4.0
+### Помилка!
+![Помилка!](./img/0.4.0_error.jpg)
+### Виправлення!
+![Виправлення!](./img/0.4.0_ok.jpg)
+## 0.5.0
+### Помилка!
+![Помилка!](./img/0.5.0_error.jpg)
+### Виправлення!
+![Виправлення!](./img/0.5.0_ok.jpg)
+## 2.0.0
+### Помилка!
+![Помилка!](./img/2.0.0_error.jpg)
+### Виправлення!
+![Виправлення!](./img/2.0.0_ok.jpg)
